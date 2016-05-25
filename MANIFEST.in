@@ -1,0 +1,20 @@
+graft docs
+graft src
+graft tests
+
+include .bumpversion.cfg
+include .coveragerc
+include .editorconfig
+include .isort.cfg
+
+include AUTHORS.rst
+include CHANGELOG.rst
+include CONTRIBUTING.rst
+include LICENSE
+include README.rst
+
+include staps.service
+
+include tox.ini .travis.yml
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib

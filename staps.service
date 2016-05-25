@@ -1,0 +1,10 @@
+[Unit]
+Description=staps - Simple Throw-Away Publish/Subscribe
+Documentation=man:staps(1)
+Documentation=https://staps.readthedocs.org/en/latest/
+
+[Service]
+ExecStart=/usr/bin/staps
+
+[Install]
+WantedBy=default.target
