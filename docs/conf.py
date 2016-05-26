@@ -26,7 +26,7 @@ project = u'staps'
 year = '2016'
 author = u'Michael Fladischer'
 copyright = '{0}, {1}'.format(year, author)
-version = release = u'0.1.0'
+version = release = u'0.1.1'
 
 pygments_style = 'trac'
 templates_path = ['.']
