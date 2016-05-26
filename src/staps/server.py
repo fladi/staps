@@ -27,7 +27,6 @@ import logging
 import uuid
 
 import pika
-
 from tornado import websocket
 
 logger = logging.getLogger(__name__)

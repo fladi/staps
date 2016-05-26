@@ -25,10 +25,12 @@
 
 import logging
 
+from cement.core.controller import CementBaseController
+from cement.core.controller import expose
 from cement.core.foundation import CementApp
-from cement.core.controller import CementBaseController, expose
 
-from staps.server import PikaClient, SocketHandler
+from staps.server import PikaClient
+from staps.server import SocketHandler
 
 
 class DaemonController(CementBaseController):
