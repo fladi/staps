@@ -16,7 +16,7 @@ A service unit file for systemd is included with staps. To enable this unit copy
 The configuration file should be placed at /etc/staps/staps.conf or ~/.staps.conf::
 
   [staps]
-  socket = /run/staps.sock
+  socket = /var/run/staps/staps.sock
   mode = 0660
   amqp = amqp://staps:@localhost/
 
