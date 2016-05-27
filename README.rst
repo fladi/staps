@@ -68,7 +68,7 @@ Installation
 Documentation
 =============
 
-https://staps.readthedocs.org/
+https://staps.readthedocs.io/en/latest/
 
 Development
 ===========
