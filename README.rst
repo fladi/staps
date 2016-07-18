@@ -54,7 +54,8 @@ Overview
 
 .. end-badges
 
-Simple Throw-Away Publish/Subscribe
+Simple Throw-Away Publish/Subscribe. Create channels simply by connecting one or mote websocket clients to a random URL path on a webserver with staps. Not
+meant to be used with webbrowsers but as a cheap way to let multiple websocket clients written outside the browser communicate with each other.
 
 * Free software: BSD license
 

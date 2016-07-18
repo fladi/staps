@@ -1,0 +1,11 @@
+digraph G {
+  graph [fontname = "Bitstream Vera Sans"];
+  node [fontname = "Bitstream Vera Sans"];
+  edge [fontname = "Bitstream Vera Sans"];
+  "staps\nDaemon" -> "nginx" [dir="both", label="Unix Domain Socket", color="blue:red"];
+  "Client A" -> "nginx" [dir="forward", label="Websocket\n(Publish)", color="red"];
+  nginx -> "Client B" [dir="forward", label="Websocket\n(Subscribe)", color="blue"];
+  nginx -> "Client C" [dir="forward", label="Websocket\n(Subscribe)", color="blue"];
+  nginx -> "Client D" [dir="forward", label="Websocket\n(Subscribe)", color="blue"];
+  {rank=same;"Client A" "Client B" "Client C" "Client D"}
+}
