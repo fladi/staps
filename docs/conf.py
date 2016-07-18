@@ -55,3 +55,5 @@ napoleon_use_rtype = False
 napoleon_use_param = False
 
 linkcheck_ignore = [r'^https?://example.com(?::\d+)?(?:/|$)']
+
+graphviz_output_format = 'svg'
