@@ -1,7 +1,7 @@
 digraph G {
-  graph [fontname = "Bitstream Vera Sans"];
-  node [fontname = "Bitstream Vera Sans"];
-  edge [fontname = "Bitstream Vera Sans"];
+  graph [fontname = "sans-serif"];
+  node [fontname = "sans-serif"];
+  edge [fontname = "sans-serif"];
   "staps\nDaemon" -> "nginx" [dir="both", label="Unix Domain Socket", color="blue:red"];
   "Client A" -> "nginx" [dir="forward", label="Websocket\n(Publish)", color="red"];
   nginx -> "Client B" [dir="forward", label="Websocket\n(Subscribe)", color="blue"];
