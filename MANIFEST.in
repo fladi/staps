@@ -1,6 +1,6 @@
-graft docs
-graft src
-graft tests
+recursive-include docs conf.py *.rst *.dot *.txt
+recursive-include src *.py
+recursive-include tests *.py
 
 include .bumpversion.cfg
 include .coveragerc
@@ -19,5 +19,3 @@ include staps.conf
 include staps.service
 
 include tox.ini .travis.yml
-
-global-exclude *.py[cod] __pycache__ *.so *.dylib
