@@ -39,7 +39,7 @@ def read(*names, **kwargs):
 
 setup(
     name='staps',
-    version='0.1.4',
+    version='0.1.5',
     license='BSD',
     description='Simple Throw-Away Publish/Subscribe',
     long_description='%s\n%s' % (
