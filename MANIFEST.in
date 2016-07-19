@@ -1,5 +1,5 @@
 recursive-include docs conf.py *.rst *.dot *.txt
-recursive-include src *.py
+recursive-include src *.py *.html
 recursive-include tests *.py
 
 include .bumpversion.cfg
