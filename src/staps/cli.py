@@ -39,17 +39,19 @@ class DaemonController(CementBaseController):
             (['--mode'], dict(help='Set permissions on socket')),
             (['--amqp'], dict(help='AMQP connection URL')),
             (['--socket'], dict(nargs='*', help='Unix domain socket paths')),
+            (['--port'], dict(nargs='*', help='Unix domain socket paths')),
         ]
         config_defaults = dict(
             mode='0o600',
             amqp='amqp://staps:@localhost/',
             socket=['/var/run/staps/staps.sock'],
+            port=[],
         )
 
     @expose(hide=True)
     def default(self):
         from tornado import web, ioloop
-        from tornado.netutil import bind_unix_socket
+        from tornado.netutil import bind_unix_socket, bind_sockets
         from tornado.httpserver import HTTPServer
 
         self.app.daemonize()
@@ -69,6 +71,11 @@ class DaemonController(CementBaseController):
                 mode=int(self.app.config.get('controller.base', 'mode'), 8)
             )
             server.add_socket(socket)
+
+        for endpoint in self.app.config.get('controller.base', 'port'):
+            self.app.log.info('Listening on {}.'.format(endpoint))
+            sockets = bind_sockets(endpoint)
+            server.add_sockets(sockets)
 
         io_loop = ioloop.IOLoop.instance()
 

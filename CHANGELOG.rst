@@ -6,6 +6,7 @@ Changelog
 -----------------------------------------
 
 * Add HTTP handler to show usage information and autogenerate UUID4 URLs.
+* Add CLI option to listen directly on TCP ports.
 
 0.1.3 (2016-07-18)
 -----------------------------------------
