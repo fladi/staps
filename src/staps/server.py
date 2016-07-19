@@ -27,7 +27,7 @@ import logging
 import uuid
 
 import pika
-from tornado import websocket
+from tornado import web, websocket
 
 logger = logging.getLogger(__name__)
 
@@ -87,6 +87,12 @@ class PikaClient(object):
     def on_error(self, connection, error):
         logger.error('PikaClient: amqp connection error: {}'.format(error))
         return
+
+
+class IndexHandler(web.RequestHandler):
+
+    def get(self, path):
+        self.render('index.html', path=path)
 
 
 class SocketHandler(websocket.WebSocketHandler):

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Staps</title>
+    <script type="text/javascript">
+    var stapsPath = new RegExp("/{{path}}$");
+    function generateUUID() {
+      var d = new Date().getTime();
+      if(window.performance && typeof window.performance.now === "function"){
+        d += performance.now();; //use high-precision timer if available
+      }
+      var uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function(c) {
+        var r = (d + Math.random()*16)%16 | 0;
+        d = Math.floor(d/16);
+        return (c=="x" ? r : (r&0x3|0x8)).toString(16);
+      });
+      return uuid;
+    };
+
+    function generateURL() {
+      var url = "{scheme}://{hostname}{port}/{path}"
+        .replace(/{scheme}/, function() {
+          return window.location.protocol === "https:" ? "wss" : "ws";
+        })
+        .replace(/{hostname}/, window.location.hostname)
+        .replace(/{port}/, function() {
+          return window.location.port ? ":" + window.location.port : "";
+        })
+        .replace(/{path}/, function() {
+          return window.location.pathname.replace(stapsPath, "") + generateUUID();
+        })
+
+      return url;
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("url").textContent = generateURL();
+    });
+    </script>
+    <style>
+    body {
+      margin: 0;
+    }
+    #box {
+      width: 50%;
+      height: 50%;
+      font-family: monospace;
+      text-align: center;
+      position: absolute;
+      top:0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      <h1>staps</h1>
+      <p>
+        This endpoint is not intended to be used with HTTP but with WebSockets instead.
+      </p>
+      <p>
+        Please use the following URL with your websocket client:
+      </p>
+      <code id="url"></code>
+    </div>
+  </body>
+</html>

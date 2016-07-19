@@ -29,8 +29,7 @@ from cement.core.controller import CementBaseController
 from cement.core.controller import expose
 from cement.core.foundation import CementApp
 
-from staps.server import PikaClient
-from staps.server import SocketHandler
+from staps.server import PikaClient, IndexHandler, SocketHandler
 
 
 class DaemonController(CementBaseController):
@@ -58,6 +57,7 @@ class DaemonController(CementBaseController):
         logging.basicConfig(level=self.app.log.backend.level)
 
         application = web.Application([
+            (r'/(.*)', IndexHandler),
             (r'/(.*)', SocketHandler),
         ])
 
