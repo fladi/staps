@@ -23,11 +23,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+# Standard Library
 import logging
 import uuid
 
 import pika
-from tornado import web, websocket
+from tornado import web
+from tornado import websocket
 
 logger = logging.getLogger(__name__)
 

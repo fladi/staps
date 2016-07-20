@@ -23,13 +23,17 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+# Standard Library
 import logging
 
 from cement.core.controller import CementBaseController
 from cement.core.controller import expose
 from cement.core.foundation import CementApp
 
-from staps.server import PikaClient, IndexHandler, SocketHandler
+# Staps
+from staps.server import IndexHandler
+from staps.server import PikaClient
+from staps.server import SocketHandler
 
 
 class DaemonController(CementBaseController):
